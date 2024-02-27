@@ -11,10 +11,11 @@ const ControlContainer = styled.div`
 	margin-bottom: 1.5rem;
 `;
 
-export default function AuthbhjInputs() {
+export default function AuthInputs() {
 	const [enteredEmail, setEnteredEmail] = useState("");
 	const [enteredPassword, setEnteredPassword] = useState("");
 	const [submitted, setSubmitted] = useState(false);
+
 	function handleInputChange(identifier, value) {
 		if (identifier === "email") {
 			setEnteredEmail(value);
@@ -22,9 +23,11 @@ export default function AuthbhjInputs() {
 			setEnteredPassword(value);
 		}
 	}
+
 	function handleLogin() {
 		setSubmitted(true);
 	}
+
 	const emailNotValid = submitted && !enteredEmail.includes("@");
 	const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
@@ -37,6 +40,7 @@ export default function AuthbhjInputs() {
 					type="email"
 					onChange={(event) => handleInputChange("email", event.target.value)}
 				/>
+
 				<Input
 					label="Password"
 					invalid={passwordNotValid}

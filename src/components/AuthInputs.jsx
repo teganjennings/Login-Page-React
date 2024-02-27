@@ -11,11 +11,10 @@ const ControlContainer = styled.div`
 	margin-bottom: 1.5rem;
 `;
 
-export default function AuthInputs() {
+export default function AuthbhjInputs() {
 	const [enteredEmail, setEnteredEmail] = useState("");
 	const [enteredPassword, setEnteredPassword] = useState("");
 	const [submitted, setSubmitted] = useState(false);
-
 	function handleInputChange(identifier, value) {
 		if (identifier === "email") {
 			setEnteredEmail(value);
@@ -23,11 +22,9 @@ export default function AuthInputs() {
 			setEnteredPassword(value);
 		}
 	}
-
 	function handleLogin() {
 		setSubmitted(true);
 	}
-
 	const emailNotValid = submitted && !enteredEmail.includes("@");
 	const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 

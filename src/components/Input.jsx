@@ -1,13 +1,18 @@
 export default function Input({ label, invalid, ...props }) {
+	let inputClasses = "w-full px-3 py-2 leading-tight border rounded shadow ";
+	let labelClasses = "block mb-2 text-xs font-bold tracking-wide uppercase";
+
+	if (invalid) {
+		labelClasses += " text-red-400";
+		inputClasses += " text-red-500 bg-red-100 border-red-300";
+	} else {
+		labelClasses += " text-stone-300";
+		inputClasses += " text-gray-700 bg-stone-300";
+	}
 	return (
 		<p>
-			<label className="block mb-2 text-xs font-bold tracking-wide uppercase text-stone-300">
-				{label}
-			</label>
-			<input
-				className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow bg-stone-300"
-				{...props}
-			/>
+			<label className={labelClasses}>{label}</label>
+			<input className={inputClasses} {...props} />
 		</p>
 	);
 }
